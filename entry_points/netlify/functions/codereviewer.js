@@ -1,6 +1,6 @@
-const OpenAISuggestions = require('../data_providers/openai').OpenAISuggestions;
-const Bitbucket = require('../data_providers/bitbucket').Bitbucket;
-const CodeReviewer = require('../core/codereviewer').CodeReviewer;
+const OpenAISuggestions = require('../../../data_providers/openai').OpenAISuggestions;
+const Bitbucket = require('../../../data_providers/bitbucket').Bitbucket;
+const CodeReviewer = require('../../../core/codereviewer').CodeReviewer;
 
 exports.handler = async function (event, context) {
      const aiModel = new OpenAISuggestions(event.body.openai_api_key);
