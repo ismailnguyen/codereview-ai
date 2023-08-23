@@ -1,0 +1,16 @@
+{
+  "name": "codereview-ai",
+  "version": "1.0.0",
+  "description": "Review Bitbucket branch using Open AI",
+  "main": "entry_points/console.js",
+  "scripts": {
+    "review": "node entry_points/console"
+  },
+  "author": "Ismaïl NGUYEN <dev@ismailnguyen.com>",
+  "license": "WTFPL",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "dotenv": "^16.3.1",
+    "openai": "^4.1.0"
+  }
+}
