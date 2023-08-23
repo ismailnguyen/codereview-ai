@@ -3,18 +3,27 @@ const Bitbucket = require('../../../data_providers/bitbucket').Bitbucket;
 const CodeReviewer = require('../../../core/codereviewer').CodeReviewer;
 
 exports.handler = async function (event, context) {
-     const aiModel = new OpenAISuggestions(event.body.openai_api_key);
+    const {
+        openai_api_key,
+        bitbucket_api_client_id,
+        bitbucket_api_client_secret,
+        bitbucket_workspace,
+        bitbucket_repository,
+        bitbucket_branch
+    } = JSON.parse(event.body);
+
+     const aiModel = new OpenAISuggestions(openai_api_key);
  
      const codeRepository = new Bitbucket({
-         clientId: event.body.bitbucket_api_client_id,
-         clientSecret: event.body.bitbucket_api_client_secret,
-         workspace: event.body.bitbucket_workspace,
-         repository: event.body.bitbucket_repository
+         clientId: bitbucket_api_client_id,
+         clientSecret: bitbucket_api_client_secret,
+         workspace: bitbucket_workspace,
+         repository: bitbucket_repository
      });
  
      const codereviewer = new CodeReviewer(aiModel, codeRepository);
  
-     const reviewResults = await codereviewer.review(event.body.branchName);
+     const reviewResults = await codereviewer.review(bitbucket_branch);
  
      return {
       statusCode: 200,
