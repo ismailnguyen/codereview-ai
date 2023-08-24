@@ -14,9 +14,13 @@ class CodeReviewer {
      * @returns the result of the `this.aiModel.suggest(task, codeDiff)` function call.
      */
     async review (branchName) {
+        // The task for the AI model to perform
         const task = 'Review the given javascript code extracted with git diff for a potential readability, security or testability issue';
 
+        // Get the code diff from the code repository
         const codeDiff = await this.codeRepository.codeDiff(branchName);
+
+        // Return the result of the AI model
         return await this.aiModel.suggest(task, codeDiff);
     }
 }

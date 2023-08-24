@@ -1,5 +1,3 @@
-/* The `OpenAISuggestions` class is a JavaScript class that uses the OpenAI API to generate suggestions
-based on a system task and a user task. */
 const OpenAI = require('openai');
 
 class OpenAISuggestions {
