@@ -2,6 +2,8 @@ const OpenAISuggestions = require('../../../data_providers/openai').OpenAISugges
 const Bitbucket = require('../../../data_providers/bitbucket').Bitbucket;
 const CodeReviewer = require('../../../core/codereviewer').CodeReviewer;
 
+/* The `exports.handler` function is the entry point for the Netlify function. When the 
+function is triggered, this function will be executed. */
 exports.handler = async function (event, context) {
     const {
         openai_api_key,

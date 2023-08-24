@@ -4,6 +4,10 @@ const OpenAISuggestions = require('../data_providers/openai').OpenAISuggestions;
 const Bitbucket = require('../data_providers/bitbucket').Bitbucket;
 const CodeReviewer = require('../core/codereviewer').CodeReviewer;
 
+/**
+ * The main function reads a branch name from user input, initializes an AI model and a code
+ * repository, and then uses a code reviewer to review the specified branch.
+ */
 const main = async () => {
     // read branch name from user's input
     const branchName = process.argv[2];
